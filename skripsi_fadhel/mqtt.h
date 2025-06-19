@@ -1,10 +1,10 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 // MQTT details
-const char* broker = "iot.digitalasistensi.com";
+const char* broker = "broker_server";
 const char* topic       = "bot";
 const char* topicInit      = "bot/stasiun_cuaca/init";
-const char* topicData      = "bot/stasiun_cuaca";
+const char* topicData      = "broker_topic";
 
 const int jsonsize = 512;
 uint32_t lastReconnectAttempt = 0;
