@@ -3,11 +3,11 @@ import csv
 import os
 from datetime import datetime
 
-csv_file = "data_mqtt_lagi.csv"
+csv_file = "file_name.csv"
 # Callback saat terhubung ke broker
 def on_connect(client, userdata, flags, rc):
     print("Terhubung ke MQTT dengan kode:", str(rc))
-    client.subscribe("bot/stasiun_cuaca")
+    client.subscribe("broker_topic")
 
 # Callback saat menerima pesan
 def on_message(client, userdata, msg):
@@ -22,7 +22,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("iot.digitalasistensi.com", 1883, 60)  # Ganti jika broker di komputer lain
+client.connect("broker_server", 1883, 60)  # Ganti jika broker di komputer lain
 
 print("Menunggu data dari ESP32... Tekan Ctrl+C untuk berhenti.")
 try:
